@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto API Introduction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 20px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        code {
+            background-color: #e8e8e8;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .endpoint {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Crypto API</h1>
+        
+        <h2>Endpoints</h2>
+        
+        <div class="endpoint">
+            <p><strong>Get Transactions and Ethereum Price:</strong></p>
+            <p>Navigate to: <code>/transaction/?address=SAMPLE_ADDRESS</code></p>
+            <p>This endpoint returns a list of transactions for the specified address and the current Ethereum price.</p>
+        </div>
+        
+        <div class="endpoint">
+            <p><strong>Get Total Expenses and Ethereum Price:</strong></p>
+            <p>Navigate to: <code>/totalExpense/?address=SAMPLE_ADDRESS</code></p>
+            <p>This endpoint returns the total expenses for the specified address and the current Ethereum price.</p>
+        </div>
+
+        <h2>Scheduler Setup</h2>
+        <p>To ensure that the Ethereum price in the database is updated every 10 minutes, you need to run the following command on a separate server:</p>
+        <pre><code>node priceUpdater.js</code></pre>
+        
+        <div class="footer">
+            <p>&copy; 2024 Crypto API. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -2,6 +2,7 @@ const axios = require('axios')
 const Crypto = require('../schemas/transactions')
 
 exports.getTransactions = async (req, res) => {
+    // storing query parameter 
     const address = req.query.address
     const apiKey = process.env.API_KEY
 
@@ -19,9 +20,9 @@ exports.getTransactions = async (req, res) => {
                 $addToSet: { transactions: { $each: transactions.result } }
             },
             {
-                new: true,
-                upsert: true,
-                setDefaultsOnInsert: true
+                new: true, // returns the updated document
+                upsert: true, // create a new document if one doesn't exist
+                setDefaultsOnInsert: true // set default values if creating new document
             }
         )
         return res.json(updatedDoc)

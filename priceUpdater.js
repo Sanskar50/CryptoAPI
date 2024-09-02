@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const Crypto = require('./schemas/transactions');
 
-// Connect to MongoDB (ensure this matches your main application's connection)
+// Connect to MongoDB 
 mongoose.connect(process.env.MONGO_KEY, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -15,10 +15,10 @@ mongoose.connect(process.env.MONGO_KEY, {
 // Function to fetch Ethereum price and update the database
 async function updateEthereumPrice() {
     try {
-        // Fetch current Ethereum price
         const ethPriceApiRes = await axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=inr`)
 
         const ethPrice = ethPriceApiRes.data;
+        
         // Update all documents in the database with the new price
         const result = await Crypto.updateMany(
             {}, // empty filter to match all documents
